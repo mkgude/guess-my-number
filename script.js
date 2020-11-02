@@ -2,7 +2,6 @@
 
 let score = 20
 const num = Math.trunc(Math.random()*20)+1;
-document.querySelector(".number").textContent = num
 
 document.querySelector(".check").addEventListener("click", function() {
     const guess = Number(document.querySelector(".guess").value)
@@ -11,6 +10,7 @@ document.querySelector(".check").addEventListener("click", function() {
         document.querySelector(".message").textContent = "🥴 Please enter a number!"
     } else if (guess === num){
         document.querySelector(".message").textContent = "🤗 You guessed correctly!"
+        document.querySelector(".number").textContent = num
         document.querySelector("body").style.backgroundColor= "#60b347"
         document.querySelector(".number").style.width = "30rem"
     } else if (guess > num) {
