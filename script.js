@@ -1,4 +1,3 @@
-'use strict';
 
 let score = 20
 let num = Math.trunc(Math.random()*20)+1;
@@ -18,25 +17,17 @@ document.querySelector(".check").addEventListener("click", function() {
             highscore = score
             document.querySelector(".highscore").textContent = score
         }
-    } else if (guess > num) {
+
+    } else if (guess !== num) {
         if (score > 1) {
-            document.querySelector(".message").textContent = "😲 Too high!";
+            document.querySelector(".message").textContent = guess > num ? "😲 Too high!" : "😲 Too low!";
             score--;
             document.querySelector(".score").textContent = score;
         } else {
             document.querySelector(".message").textContent = "You lost the game"   
             document.querySelector(".score").textContent = 0
         }
-    } else {
-        if (score > 1) {
-            document.querySelector(".message").textContent = "😲 Too low!"
-            score--;
-            document.querySelector(".score").textContent = score
-        } else {
-            document.querySelector(".message").textContent = "You lost the game"   
-            document.querySelector(".score").textContent = 0
-        }
-    }
+    } 
 })
 
 document.querySelector(".again").addEventListener("click", function(){
